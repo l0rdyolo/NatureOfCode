@@ -11,6 +11,9 @@ let accSliderX;
 let accSliderY;
 
 
+//forces
+let forces;
+
 let stages;
 
 const canvas = {
@@ -27,17 +30,14 @@ function setup() {
   // bouncingBall.addSpeed(0,5);
   // magnitude = new Magnitude();
   //  normalizing = new Normalizing();
+  // accelertion = new Acceleration(canvas.w/2,canvas.h/2 );
   
-  throwButton = createButton("Throw")
-  throwButton.mousePressed(onMousePress)
   
-  accelertion = new Acceleration(canvas.w/2,canvas.h/2 );
-
-
+  forces = new Forces();
 
   fill(0);
   stages.push(
-    accelertion
+    forces
   )
   
 }
@@ -46,9 +46,6 @@ function setup() {
 
 function draw() {
   background(220);
-  textAlign(LEFT);
-  textSize(12);
-  fill(0);
 
   
   updateStage();
@@ -62,10 +59,9 @@ function updateStage(){
   });
 }
 
-function onMousePress(){
-  accelertion.throw();
-}
-
-
+// function mouseClicked() {
+//   accelertion.moveToClick();
+  
+// }
 
 
